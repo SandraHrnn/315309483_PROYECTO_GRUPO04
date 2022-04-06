@@ -149,7 +149,7 @@ int main( )
     Model pokearriba((char*)"Models/pokeball/pokearriba.obj");
     Model pokeabajo((char*)"Models/pokeball/pokeabajo.obj");*/
     Model barra((char*)"Models/barra2/barra2.obj");
-    Model banco((char*)"Models/banco/banco.obj");
+    Model banco((char*)"Models/bancorojo/banco.obj");
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
