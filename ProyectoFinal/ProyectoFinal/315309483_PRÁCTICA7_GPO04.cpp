@@ -145,11 +145,9 @@ int main( )
     //glEnableVertexAttribArray(2);
 
     // Load textures
-   /* Model box((char*)"Models/Box/box.obj");
-    Model pokearriba((char*)"Models/pokeball/pokearriba.obj");
-    Model pokeabajo((char*)"Models/pokeball/pokeabajo.obj");*/
     Model barra((char*)"Models/barra2/barra2.obj");
     Model banco((char*)"Models/bancorojo/banco.obj");
+    Model mesita((char*)"Models/mesita/mesita.obj");
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -242,15 +240,12 @@ int main( )
         model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
-        //model = glm:: mat4(1);
+        
+        model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //pokearriba.Draw(shader);
-
-        //model = glm::mat4(1);
-        ////model = glm::rotate(model, glm::radians(-rot), glm::vec3(0.0f, 1.0f, 0.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //pokeabajo.Draw(shader);
+        model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        mesita.Draw(shader);
         
         glBindVertexArray(0);
 
