@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="315309483_PRÁCTICA7_GPO04.cpp" />
+    <ClCompile Include="315309483_PROYECTOLAB_GPO04.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
