@@ -145,11 +145,10 @@ int main( )
     //glEnableVertexAttribArray(2);
 
     // Load textures
-    Model barra((char*)"Models/barra2/barra2.obj");//corregir
-    Model banco((char*)"Models/bancorojo/banco.obj");//corregir
-    Model mesita((char*)"Models/mesita/mesita.obj");//corregir
-    Model gabinetes((char*)"Models/gabinetes/gabinetes.obj");//corregir
-    Model repisa((char*)"Models/repisa/repisa.obj");
+    Model barra((char*)"Models/barra2/barra2.obj");
+    Model banco((char*)"Models/bancorojo/banco.obj");
+    Model mesita((char*)"Models/mesita/mesita.obj");
+    Model gabinetes((char*)"Models/gabinetes/gabinetes.obj");
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -161,7 +160,7 @@ int main( )
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
   
-    /*image = stbi_load("images/goku.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
+    image = stbi_load("images/goku.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
     glGenerateMipmap(GL_TEXTURE_2D);
     if (image)
@@ -173,7 +172,7 @@ int main( )
     {
         std::cout << "Failed to load texture" << std::endl;
     }
-    stbi_image_free(image);*/
+    stbi_image_free(image);
 
 
     // Game loop
@@ -213,11 +212,6 @@ int main( )
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
-
-        model = glm::mat4(1);
-        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        repisa.Draw(shader);
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
