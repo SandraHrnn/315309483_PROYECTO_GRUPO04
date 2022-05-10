@@ -150,6 +150,9 @@ int main( )
     Model mesita((char*)"Models/mesita/mesita.obj");//corregir
     Model gabinetes((char*)"Models/gabinetes/gabinetes.obj");//corregir
     Model repisa((char*)"Models/repisa/repisa.obj");
+    Model helados((char*)"Models/icecream/icecream.obj");
+    Model lampara((char*)"Models/lampara/lampara.obj");
+   
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -260,6 +263,19 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         gabinetes.Draw(shader);
         
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        helados.Draw(shader);
+
+
         glBindVertexArray(0);
 
         glActiveTexture(GL_TEXTURE0);
