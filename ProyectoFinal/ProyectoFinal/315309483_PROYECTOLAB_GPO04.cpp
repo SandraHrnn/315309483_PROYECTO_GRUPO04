@@ -56,7 +56,7 @@ int main( )
     glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
     
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Practica 4", nullptr, nullptr );
+    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "PROYECTO", nullptr, nullptr );
     
     if ( nullptr == window )
     {
@@ -147,8 +147,8 @@ int main( )
     // Load textures
     Model barra((char*)"Models/barra2/barra2.obj");//corregir
     Model banco((char*)"Models/bancorojo/banco.obj");//corregir
-    Model mesita((char*)"Models/mesita/mesita.obj");//corregir
-    Model gabinetes((char*)"Models/gabinetes/gabinetes.obj");//corregir
+    Model mesita((char*)"Models/mesaas/mesaas.obj");//corregir
+    Model gabinetes((char*)"Models/sillones/sillones.obj");//corregir
     Model repisa((char*)"Models/repisa/repisa.obj");
     Model helados((char*)"Models/icecream/icecream.obj");
     Model lampara((char*)"Models/lampara/lampara.obj");
