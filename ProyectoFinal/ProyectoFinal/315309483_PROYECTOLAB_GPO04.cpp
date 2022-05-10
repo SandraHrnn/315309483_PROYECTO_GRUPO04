@@ -134,21 +134,12 @@ int main( )
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-    //// Position attribute
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
-    //glEnableVertexAttribArray(0);
-    //// color attribute
-    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-    //glEnableVertexAttribArray(1);
-    //// texture coord attribute
-    //glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    //glEnableVertexAttribArray(2);
-
+    
     // Load textures
-    Model barra((char*)"Models/barra2/barra2.obj");//corregir
-    Model banco((char*)"Models/bancorojo/banco.obj");//corregir
-    Model mesita((char*)"Models/mesaas/mesaas.obj");//corregir
-    Model gabinetes((char*)"Models/sillones/sillones.obj");//corregir
+    Model barra((char*)"Models/barrabien1/barrabien1.obj");
+    Model banco((char*)"Models/banquito/banquito.obj");
+    Model mesita((char*)"Models/mesaas/mesaas.obj");
+    Model gabinetes((char*)"Models/sillones/sillones.obj");
     Model repisa((char*)"Models/repisa/repisa.obj");
     Model helados((char*)"Models/icecream/icecream.obj");
     Model lampara((char*)"Models/lampara/lampara.obj");
@@ -164,20 +155,7 @@ int main( )
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
   
-    /*image = stbi_load("images/goku.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-    glGenerateMipmap(GL_TEXTURE_2D);
-    if (image)
-    {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        std::cout << "Failed to load texture" << std::endl;
-    }
-    stbi_image_free(image);*/
-
+   
 
     // Game loop
     while (!glfwWindowShouldClose(window))
@@ -224,21 +202,17 @@ int main( )
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
-        model = glm::translate(model, glm::vec3(-1.0f, 0.0f, 0.0f));
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        banco.Draw(shader);
-
-        model = glm::mat4(1);
-        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::translate(model, glm::vec3(-2.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
-        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(1.5f, 0.0f, -2.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
+
+
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::translate(model, glm::vec3(-4.0f, 0.0f, 0.0f));
@@ -247,7 +221,18 @@ int main( )
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
-        model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(-6.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        banco.Draw(shader);
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(-8.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        banco.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(-10.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
         
@@ -266,6 +251,30 @@ int main( )
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(6.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(9.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        lampara.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(12.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         lampara.Draw(shader);
 
