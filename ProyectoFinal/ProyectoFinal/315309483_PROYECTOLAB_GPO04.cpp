@@ -149,6 +149,7 @@ int main( )
     Model puertaEntrada((char*)"Models/entrada/entrada.obj");
     Model marcoPuerta((char*)"Models/puertaentrada1/puertaentrada.obj");
     Model levantaBarra((char*)"Models/levantabarra/levantabarra.obj");
+    Model restaurante((char*)"Models/casita/casita.obj");
    
     GLuint texture;
     glGenTextures(1, &texture);
@@ -196,6 +197,11 @@ int main( )
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         barra.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        restaurante.Draw(shader);
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
