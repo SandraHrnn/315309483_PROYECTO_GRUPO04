@@ -36,13 +36,15 @@ Camera camera( glm::vec3( 0.0f, 0.0f, 3.0f ) );
 bool keys[1024];
 GLfloat lastX = 400, lastY = 300;
 bool firstMouse = true;
-//bool anim = false;
-//bool anim2 = true;
+bool anim = false;
+bool anim1 = false;
+bool anim2 = false;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 float rot = 0.0f;
-
+float rot1 = 0.0f;
+float rot2 = 0.0f;
 
 int main( )
 {
@@ -143,8 +145,10 @@ int main( )
     Model repisa((char*)"Models/repisa/repisa.obj");
     Model helados((char*)"Models/icecream/icecream.obj");
     Model lampara((char*)"Models/lampara/lampara.obj");
-    Model puertaCocina((char*)"Models/puertacocina/puertacocina.obj");
-    Model puertaEntrada((char*)"Models/puertaentrada1/puertaentrada.obj");
+    Model puertaCocina((char*)"Models/puertacocinabien/pruebapuerta.obj");
+    Model puertaEntrada((char*)"Models/entrada/entrada.obj");
+    Model marcoPuerta((char*)"Models/puertaentrada1/puertaentrada.obj");
+    Model levantaBarra((char*)"Models/levantabarra/levantabarra.obj");
    
     GLuint texture;
     glGenTextures(1, &texture);
@@ -288,19 +292,38 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         helados.Draw(shader);
 
+
+        //animación 1
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         //model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-        /*model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));*/
+        model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 3.0f));
+        model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
+        //model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         puertaCocina.Draw(shader);
 
+        //animación2
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         /*model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));*/
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(5.3f, 0.0f, 3.3f));
+        model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         puertaEntrada.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        marcoPuerta.Draw(shader);
+
+        //Animación 3
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(3.2f, 1.5f, -5.2f));
+        model = glm::rotate(model, glm::radians(rot2), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        levantaBarra.Draw(shader);
 
         glBindVertexArray(0);
 
@@ -353,27 +376,26 @@ void DoMovement( )
     }
 
   
-    //if (anim)
-    //{
-    //    if (rot <= 90.0f) {
-    //        rot += 0.1;
-    //    }
-    //    else {
-    //        anim2 = true;
-    //        anim = false;
-    //    }
-    //}
+    if (anim)
+    {
+        if (rot<90.0f) 
+            rot += 1.0;
+        
+    }
 
-    //if (anim2)
-    //{
-    //    if (rot > 0.0f) {
-    //        rot -= 0.1;
-    //    }
-    //    else {
-    //        anim2 = false;
-    //        //anim = true;
-    //    }
-    //}
+    if (anim1)
+    {
+        if (rot1<35.0f)
+            rot1 += 1.0;
+
+    }
+
+    if (anim2)
+    {
+        if (rot2 < 80.0f)
+            rot2 += 1.0;
+
+    }
    
 }
 
@@ -397,14 +419,22 @@ void KeyCallback( GLFWwindow *window, int key, int scancode, int action, int mod
         }
     }
 
+
     if (keys[GLFW_KEY_O])
     {
-        rot += 0.5;
-        
-            
+        anim = true;
     }
 
- 
+    if (keys[GLFW_KEY_L])
+    {
+        anim1 = true;
+    }
+
+    if (keys[GLFW_KEY_K])
+    {
+        anim2 = true;
+    }
+   
 }
 
 void MouseCallback( GLFWwindow *window, double xPos, double yPos )
