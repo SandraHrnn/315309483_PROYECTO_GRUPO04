@@ -36,8 +36,8 @@ Camera camera( glm::vec3( 0.0f, 0.0f, 3.0f ) );
 bool keys[1024];
 GLfloat lastX = 400, lastY = 300;
 bool firstMouse = true;
-bool anim = false;
-bool anim2 = true;
+//bool anim = false;
+//bool anim2 = true;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -143,6 +143,8 @@ int main( )
     Model repisa((char*)"Models/repisa/repisa.obj");
     Model helados((char*)"Models/icecream/icecream.obj");
     Model lampara((char*)"Models/lampara/lampara.obj");
+    Model puertaCocina((char*)"Models/puertacocina/puertacocina.obj");
+    Model puertaEntrada((char*)"Models/puertaentrada1/puertaentrada.obj");
    
     GLuint texture;
     glGenTextures(1, &texture);
@@ -186,6 +188,7 @@ int main( )
         Pizza.Draw(shader);*/
 
         model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(rot), glm::vec3(1.0f, 0.0f, 0.0f));
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         barra.Draw(shader);
@@ -268,6 +271,7 @@ int main( )
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::translate(model, glm::vec3(9.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         lampara.Draw(shader);
@@ -284,6 +288,19 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         helados.Draw(shader);
 
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        //model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        /*model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));*/
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puertaCocina.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        /*model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));*/
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puertaEntrada.Draw(shader);
 
         glBindVertexArray(0);
 
@@ -336,27 +353,27 @@ void DoMovement( )
     }
 
   
-    if (anim)
-    {
-        if (rot <= 90.0f) {
-            rot += 0.1;
-        }
-        else {
-            anim2 = true;
-            anim = false;
-        }
-    }
+    //if (anim)
+    //{
+    //    if (rot <= 90.0f) {
+    //        rot += 0.1;
+    //    }
+    //    else {
+    //        anim2 = true;
+    //        anim = false;
+    //    }
+    //}
 
-    if (anim2)
-    {
-        if (rot > 0.0f) {
-            rot -= 0.1;
-        }
-        else {
-            anim2 = false;
-            //anim = true;
-        }
-    }
+    //if (anim2)
+    //{
+    //    if (rot > 0.0f) {
+    //        rot -= 0.1;
+    //    }
+    //    else {
+    //        anim2 = false;
+    //        //anim = true;
+    //    }
+    //}
    
 }
 
@@ -382,7 +399,7 @@ void KeyCallback( GLFWwindow *window, int key, int scancode, int action, int mod
 
     if (keys[GLFW_KEY_O])
     {
-        anim = true;
+        rot += 0.5;
         
             
     }
