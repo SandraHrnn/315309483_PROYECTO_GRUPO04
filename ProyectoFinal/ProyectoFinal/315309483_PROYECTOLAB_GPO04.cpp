@@ -150,6 +150,8 @@ int main( )
     Model marcoPuerta((char*)"Models/puertaentrada1/puertaentrada.obj");
     Model levantaBarra((char*)"Models/levantabarra/levantabarra.obj");
     Model restaurante((char*)"Models/casita/casita.obj");
+    Model edificio((char*)"Models/edificio1/edificio1.obj");
+
    
     GLuint texture;
     glGenTextures(1, &texture);
@@ -202,6 +204,11 @@ int main( )
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         restaurante.Draw(shader);
+
+        model = glm::mat4(1);
+        //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        edificio.Draw(shader);
 
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -303,7 +310,7 @@ int main( )
         model = glm::mat4(1);
         //model = glm::rotate(model, glm::radians(-rot), glm::vec3(1.0f, 0.0f, 0.0f));
         //model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-        model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 3.0f));
+        model = glm::translate(model, glm::vec3(-9.8f, 0.0f, -7.2f));
         model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
         //model = glm::translate(model, glm::vec3(-5.0f, 0.0f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -391,7 +398,7 @@ void DoMovement( )
 
     if (anim1)
     {
-        if (rot1<35.0f)
+        if (rot1<38.0f)
             rot1 += 1.0;
 
     }
