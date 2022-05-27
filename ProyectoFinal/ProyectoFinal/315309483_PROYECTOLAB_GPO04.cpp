@@ -192,32 +192,32 @@ int main( )
         glm::mat4 model(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         
-      /*  model = glm::mat4(1);
+        model = glm::mat4(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        barra.Draw(shader);*/
+        barra.Draw(shader);
 
-       /* model = glm::mat4(1);
+        model = glm::mat4(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        restaurante.Draw(shader);*/
+        restaurante.Draw(shader);
 
-    /*    model = glm::mat4(1);
+        model = glm::mat4(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        edificio.Draw(shader);*/
+        edificio.Draw(shader);
 
-      /*  model = glm::mat4(1);
+        model = glm::mat4(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        banco.Draw(shader);*/
+        banco.Draw(shader);
 
-      /*  model = glm::mat4(1);
+        model = glm::mat4(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        repisa.Draw(shader);*/
+        repisa.Draw(shader);
 
-     /*   model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(-2.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        banco.Draw(shader);*/
+        banco.Draw(shader);
 
-       /* model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(1.5f, 0.0f, -2.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         banco.Draw(shader);
@@ -239,19 +239,19 @@ int main( )
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(-10.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        banco.Draw(shader);*/
+        banco.Draw(shader);
         
-       /* model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        mesita.Draw(shader);*/
+        mesita.Draw(shader);
 
-       /* model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        gabinetes.Draw(shader);*/
+        gabinetes.Draw(shader);
         
-        /*model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         lampara.Draw(shader);
@@ -274,12 +274,12 @@ int main( )
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(12.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        lampara.Draw(shader);*/
+        lampara.Draw(shader);
 
-      /*  model = glm::mat4(1);
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        helados.Draw(shader);*/
+        helados.Draw(shader);
 
 
         model = glm::mat4(1);
@@ -294,30 +294,30 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         desk.Draw(shader);
 
-        ////animación 1
-        //model = glm::mat4(1);
-        //model = glm::translate(model, glm::vec3(-9.8f, 0.0f, -7.2f));
-        //model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //puertaCocina.Draw(shader);
+        //animación 1
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-9.8f, 0.0f, -7.2f));
+        model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puertaCocina.Draw(shader);
 
-        ////animación2
-        //model = glm::mat4(1);
-        //model = glm::translate(model, glm::vec3(5.3f, 0.0f, 3.3f));
-        //model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //puertaEntrada.Draw(shader);
+        //animación2
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(5.3f, 0.0f, 3.3f));
+        model = glm::rotate(model, glm::radians(rot1), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        puertaEntrada.Draw(shader);
 
-        //model = glm::mat4(1);
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //marcoPuerta.Draw(shader);
+        model = glm::mat4(1);
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        marcoPuerta.Draw(shader);
 
-        ////Animación 3
-        //model = glm::mat4(1);
-        //model = glm::translate(model, glm::vec3(3.2f, 1.5f, -5.2f));
-        //model = glm::rotate(model, glm::radians(rot2), glm::vec3(1.0f, 0.0f, 0.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //levantaBarra.Draw(shader);
+        //Animación 3
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.2f, 1.5f, -5.2f));
+        model = glm::rotate(model, glm::radians(rot2), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        levantaBarra.Draw(shader);
 
         glBindVertexArray(0);
 
